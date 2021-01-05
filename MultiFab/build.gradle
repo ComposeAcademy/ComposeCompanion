@@ -3,6 +3,7 @@ import academy.compose.buildsrc.*
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'maven-publish'
 }
 apply plugin: 'kotlin-android'
 
@@ -52,4 +53,18 @@ dependencies {
 }
 repositories {
     mavenCentral()
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                groupId = 'academy.compose.companion'
+                artifactId = 'multi-fab'
+                version = '1.0'
+            }
+        }
+    }
 }
