@@ -6,4 +6,4 @@ Companion composables for Compose projects
 
 An expanding Floating Action Button that allows you to display stacked FAB actions.Action
 
-![Multi-FAB](art/fab.gif)
+![Multi-FAB](art/fab.gif

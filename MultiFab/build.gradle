@@ -3,9 +3,11 @@ import academy.compose.buildsrc.*
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
-    id 'maven-publish'
 }
-apply plugin: 'kotlin-android'
+
+kotlin {
+    explicitApi()
+}
 
 android {
     compileSdkVersion 30
@@ -13,14 +15,14 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildFeatures {
+        buildConfig false
         compose true
     }
 
@@ -38,33 +40,29 @@ android {
         kotlinCompilerVersion Versions.kotlin
         kotlinCompilerExtensionVersion Deps.Compose.version
     }
+
     kotlinOptions {
-        jvmTarget = '1.8'
-        useIR = true
+        allWarningsAsErrors = true
+
+        jvmTarget = "1.8"
+
+        freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
+        freeCompilerArgs += "-Xallow-jvm-ir-dependencies"
     }
 }
 
 dependencies {
+    implementation Deps.Compose.foundation
     implementation Deps.Compose.runtime
     implementation Deps.Compose.material
-    implementation Deps.Compose.layout
-    implementation Deps.Compose.tooling
     implementation Deps.Kotlin.stdLib
 }
-repositories {
-    mavenCentral()
+
+
+ext {
+    PUBLISH_GROUP_ID = 'academy.compose.companion'
+    PUBLISH_ARTIFACT_ID = 'multi-fab'
+    PUBLISH_VERSION = android.defaultConfig.versionName
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-
-                groupId = 'academy.compose.companion'
-                artifactId = 'multi-fab'
-                version = '1.0'
-            }
-        }
-    }
-}
+apply from: "${rootProject.projectDir}/MultiFab/scripts/publish-mavencentral.gradle"
