@@ -8,6 +8,12 @@ An expanding Floating Action Button that allows you to display stacked FAB actio
 
 ![Multi-FAB](art/fab.gif)
 
+### Installation
+
+    implementation 'academy.compose.companion:multi-fab:1.2'
+    
+### Usage
+
 You can use the Multi FAB via it's comosable constructor:
 
     @Composable
