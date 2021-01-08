@@ -4,6 +4,8 @@ Companion composables for Compose projects
 
 ## Multi Floating Action Button
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/academy.compose.companion/multi-fab/badge.svg)](https://maven-badges.herokuapp.com/maven-central/academy.compose.companion/multi-fab)
+
 An expanding Floating Action Button that allows you to display stacked FAB actions.
 
 ![Multi-FAB](art/fab.gif)
