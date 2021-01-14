@@ -55,8 +55,10 @@ object Deps {
     }
 
     object Compose {
-        const val version = "1.0.0-alpha09"
+        const val version = "1.0.0-alpha10"
 
+        const val animation = "androidx.compose.animation:animation:$version"
+        const val animationCore = "androidx.compose.animation:animation-core:$version"
         const val core = "androidx.compose.ui:ui:$version"
         const val foundation = "androidx.compose.foundation:foundation:$version"
         const val layout = "androidx.compose.foundation:foundation-layout:$version"
