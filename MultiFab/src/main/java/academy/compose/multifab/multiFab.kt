@@ -20,10 +20,12 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.platform.AmbientContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat
 
 @Composable
 fun MultiFloatingActionButton(
@@ -85,6 +87,7 @@ private fun MiniFabItem(
     onFabItemClicked: (item: MultiFabItem) -> Unit
 ) {
     val fabColor = MaterialTheme.colors.secondary
+    val shadowColor = ContextCompat.getColor(AmbientContext.current, R.color.transparent_black)
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.padding(end = 12.dp)
@@ -113,7 +116,7 @@ private fun MiniFabItem(
                 )
         ) {
             drawCircle(
-                Color(android.graphics.Color.parseColor("#1F000000")),
+                Color(shadowColor),
                 center = Offset(this.center.x + 2f, this.center.y + 7f),
                 radius = scale
             )

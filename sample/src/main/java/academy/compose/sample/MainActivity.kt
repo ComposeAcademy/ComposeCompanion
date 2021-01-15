@@ -21,6 +21,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.AmbientContext
 import androidx.compose.ui.res.imageResource
+import androidx.core.content.ContextCompat
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                     val alpha = if (toState == MultiFabState.EXPANDED) 0.4f else 0f
                     Box(
                         modifier = Modifier.alpha(animateAsState(alpha).value).background(
-                            Color(AmbientContext.current.resources.getColor(R.color.transparent_black))
+                            Color(ContextCompat.getColor(AmbientContext.current, R.color.black))
                         ).fillMaxSize()
                     )
                 }
