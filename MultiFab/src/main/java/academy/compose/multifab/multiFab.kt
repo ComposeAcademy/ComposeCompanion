@@ -97,7 +97,7 @@ private fun MiniFabItem(
                 modifier = Modifier.alpha(animateAsState(alpha).value)
                     .shadow(animateAsState(shadow).value)
                     .background(color = MaterialTheme.colors.surface)
-                    .padding(start = 6.dp, end = 6.dp, top = 4.dp)
+                    .padding(start = 6.dp, end = 6.dp, top = 4.dp, bottom = 4.dp)
             )
             Spacer(modifier = Modifier.width(16.dp))
         }
