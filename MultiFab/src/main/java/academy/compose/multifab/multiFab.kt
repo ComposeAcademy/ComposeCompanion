@@ -47,7 +47,7 @@ fun MultiFloatingActionButton(
     }
     val shadow: Dp by transition.animateDp(
         transitionSpec = {
-            tween(durationMillis = 50, delayMillis = 500)
+            tween(durationMillis = 50)
         }
     ) { state ->
         if (state == MultiFabState.EXPANDED) 2.dp else 0.dp
